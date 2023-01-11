@@ -1,21 +1,24 @@
-import smtplib
-import ssl
+import smtplib, ssl
 
-host = "smtp.gmail.com"
-port = 465
+def send_email(message):
+    host = "smtp.gmail.com"
+    port = 465
 
-password = "yjphpritxcnskijz"
-username = "jew.user@gmail.com"
+    msg = message
 
-receiver = "wiehman.eric@gmail.com"
-context = ssl.create_default_context()
+    username = "jew.user@gmail.com"
+    password = "yjphpritxcnskijz"
 
-message = """\
-Subject: Hi!
-How are you?
-Bye!
-"""
+    receiver = "jew.user@gmail.com"
+    context = ssl.create_default_context()
 
-with smtplib.SMTP_SSL(host, port, context=context) as server:
-    server.login(username, password)
-    server.sendmail(username, receiver, message)
+    #message = """\
+    #Subject: New email from asdf@asdf.com
+    
+    #From: asdf@asdf.com
+    #asdfjksdla;woeifjaweofj
+    #"""
+
+    with smtplib.SMTP_SSL(host, port, context=context) as server:
+        server.login(username, password)
+        server.sendmail(username, receiver, msg)
