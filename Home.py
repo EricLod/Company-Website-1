@@ -14,10 +14,10 @@ st.subheader("Our Team")
 
 col1, space1, col2, space2, col3 = st.columns([1, 0.5, 1, 0.5, 1])
 df = pandas.read_csv("data.csv", sep=",")
+
 i = 0
 for index, row in df.iterrows():
     i += 1
-
 col_div = int(i/3)
 
 with col1:
